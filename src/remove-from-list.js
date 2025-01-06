@@ -1,6 +1,6 @@
-const { NotImplementedError } = require('../extensions/index.js');
+const { NotImplementedError } = require( '../extensions/index.js' );
 
-// const { ListNode } = require('../extensions/list-node.js');
+const { ListNode } = require( '../extensions/list-node.js' );
 
 /**
  * Given a singly linked list of integers l and an integer k,
@@ -22,39 +22,75 @@ const { NotImplementedError } = require('../extensions/index.js');
  *   }
  * }
  */
-function removeKFromList(node, k) {
-  // class ListNode {
-  //   constructor(x) {
-  //     this.value = x;
-  //     this.next = null;
-  //   }
-  // }
+function removeKFromList( node, k ) {
+  // throw new NotImplementedError( 'Not implemented' );
+  // remove line with error and write your code here
+
+  const obj = {};
 
 
-
-
-  let mas = {};
-  if (node !== null) {
-
-    if ((node.value == k)) {
-      if (node.next == null) {
-        node = null;
-        return node;
-      } else {
-        node = node.next;
-        removeKFromList(node.next, k);
-      }
-
-
+  function getMas( node, mas = [] ) {
+    if ( node.next === null ) {
+      mas.push( node.value );
+      return mas;
     }
-  } else {
-    return null;
+    mas.push( node.value );
+    return getMas( node.next, mas );
   }
-  console.log(node);
-  console.log(k);
 
-  // return removeKFromList(node.next, k);
-  return node;
+  const mas = getMas( node );
+  const filt = mas.filter( el => el !== k );
+  console.debug( 'getMas(node)' );
+  console.debug( mas );
+  console.debug( 'filt' );
+  console.debug( filt );
+  console.debug( 'k' );
+  console.debug( k );
+
+  const l = rec();
+
+  console.debug( 'L' );
+  console.debug( l );
+
+  function rec( n = 0 ) {
+    if ( n > filt.length - 1 ) return null;
+
+    const list = new ListNode( filt[n] );
+
+    list.next = rec( ++n );
+    return list;
+
+
+  }
+
+
+
+  return l;
+
+
+
+  // let mas = {};
+  // if ( node !== null ) {
+
+  //   if ( ( node.value == k ) ) {
+  //     if ( node.next == null ) {
+  //       node = null;
+  //       return node;
+  //     } else {
+  //       node = node.next;
+  //       removeKFromList( node.next, k );
+  //     }
+
+
+  //   }
+  // } else {
+  //   return null;
+  // }
+  // console.log( node );
+  // console.log( k );
+
+  // // return removeKFromList(node.next, k);
+  // return node;
 
 }
 
