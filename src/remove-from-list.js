@@ -40,17 +40,17 @@ function removeKFromList( node, k ) {
 
   const mas = getMas( node );
   const filt = mas.filter( el => el !== k );
-  console.debug( 'getMas(node)' );
-  console.debug( mas );
-  console.debug( 'filt' );
-  console.debug( filt );
-  console.debug( 'k' );
-  console.debug( k );
+  // console.debug( 'getMas(node)' );
+  // console.debug( mas );
+  // console.debug( 'filt' );
+  // console.debug( filt );
+  // console.debug( 'k' );
+  // console.debug( k );
 
   const l = rec();
 
-  console.debug( 'L' );
-  console.debug( l );
+  // console.debug( 'L' );
+  // console.debug( l );
 
   function rec( n = 0 ) {
     if ( n > filt.length - 1 ) return null;
@@ -86,8 +86,8 @@ function removeKFromList( node, k ) {
   // } else {
   //   return null;
   // }
-  // console.log( node );
-  // console.log( k );
+  // // console.log( node );
+  // // console.log( k );
 
   // // return removeKFromList(node.next, k);
   // return node;
